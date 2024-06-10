@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button mat-button> Home</button>
+  <button mat-button> Profile</button>
+  <button mat-button [matMenuTriggerFor]="importMenu" >import</button>
+  <mat-menu #importMenu>
+    <button mat-menu-item> load Studens</button>
+    <button mat-menu-item> load Payments</button>
+  </mat-menu>
+  <button mat-raised-button color="accent"> login</button>
+
+</mat-toolbar>
