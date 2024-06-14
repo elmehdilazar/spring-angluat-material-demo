@@ -17,6 +17,23 @@ import { LoginComponent } from './login/login.component';
 import { StudentComponent } from './student/student.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PaymentsComponent } from './payments/payments.component';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
+import {MatDivider} from "@angular/material/divider";
+import { LoadStudentsComponent } from './load-students/load-students.component';
+import { LoadPaymentsComponent } from './load-payments/load-payments.component';
+import {
+  MatCellDef,
+  MatHeaderCellDef,
+  MatHeaderRowDef,
+  MatRowDef,
+  MatTable,
+  MatTableModule
+} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
+import {MatFormField, MatInput} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+
 
 @NgModule({
   declarations: [
@@ -27,7 +44,9 @@ import { PaymentsComponent } from './payments/payments.component';
     LoginComponent,
     StudentComponent,
     DashboardComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    LoadStudentsComponent,
+    LoadPaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +59,22 @@ import { PaymentsComponent } from './payments/payments.component';
     MatSidenavModule,
     MatNavList,
     MatListItem,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatDivider,
+    MatTableModule,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatHeaderRowDef,
+    MatRowDef,
+    MatPaginator,
+    MatSort,
+    MatSortHeader,
+    MatInput,
+    MatFormFieldModule,
+
 
   ],
   providers: [

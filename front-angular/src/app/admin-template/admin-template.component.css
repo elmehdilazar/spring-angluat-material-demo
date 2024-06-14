@@ -1,3 +1,6 @@
 .spacer{
   flex: auto;
 }
+mat-card-header{
+  background-color: whitesmoke;
+}

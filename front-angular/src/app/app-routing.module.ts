@@ -6,6 +6,8 @@ import {LoginComponent} from "./login/login.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {StudentComponent} from "./student/student.component";
 import {PaymentsComponent} from "./payments/payments.component";
+import {LoadStudentsComponent} from "./load-students/load-students.component";
+import {LoadPaymentsComponent} from "./load-payments/load-payments.component";
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
   {path:"students",component:StudentComponent},
   {path:"payments",component:PaymentsComponent},
+  {path:"loadStudents",component:LoadStudentsComponent},
+  {path:"loadPayments",component:LoadPaymentsComponent},
 ];
 
 @NgModule({

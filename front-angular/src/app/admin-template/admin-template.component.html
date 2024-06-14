@@ -7,8 +7,8 @@
   <button mat-button routerLink="/profile"> Profile</button>
   <button mat-button [matMenuTriggerFor]="importMenu" > <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>import</button>
   <mat-menu #importMenu>
-    <button mat-menu-item> load Studens</button>
-    <button mat-menu-item> load Payments</button>
+    <button mat-menu-item routerLink="loadStudents"> load Studens</button>
+    <button mat-menu-item routerLink="loadPayments"> load Payments</button>
   </mat-menu>
   <button mat-raised-button routerLink="/login" color="accent"> login</button>
 
@@ -37,7 +37,8 @@
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <div style="min-height: 600px"></div>
+
     <router-outlet></router-outlet>
+    <div style="min-height: 600px"></div>
   </mat-drawer-content>
 </mat-drawer-container>
