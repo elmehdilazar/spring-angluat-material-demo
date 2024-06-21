@@ -6,17 +6,26 @@ import com.example.backend.entites.PaymentType;
 import com.example.backend.entites.Student;
 import com.example.backend.repositories.PaymentRepository;
 import com.example.backend.repositories.StudentRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.backend.services.PaymentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.List;
+
 
 @RestController
 public class PaymentRestController {
     private StudentRepository studentRepository;
     private PaymentRepository paymentRepository;
+    @Autowired
+    private PaymentService paymentService;
 
     public PaymentRestController(PaymentRepository paymentRepository, StudentRepository studentRepository) {
         this.paymentRepository = paymentRepository;
@@ -54,5 +63,19 @@ public class PaymentRestController {
     public List<Student> getStudentsByPrograme(@RequestParam String programId){
         return studentRepository.findByProgrameId(programId);
 
+    }
+    @PutMapping("/payment/{id}")
+    public Payment updatePaymenet(@RequestParam PaymentStatus status,@PathVariable Long id){
+    return paymentService.updatePaymenet(status,id);
+    }
+    @PostMapping(path="/payments",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public  Payment savePayment(@RequestParam MultipartFile file, LocalDate date ,
+                                double amount,PaymentType type,String studentCode) throws IOException
+    {
+        return paymentService.savePayment(file,date,amount,type,studentCode);
+    }
+    @GetMapping(path = "/paymentFile/{paymentID}",produces = MediaType.APPLICATION_PDF_VALUE)
+    public byte[] getPaymentFile(@PathVariable Long paymentID) throws IOException {
+        return paymentService.getPaymentFile(paymentID);
     }
 }
