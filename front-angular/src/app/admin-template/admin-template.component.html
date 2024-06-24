@@ -3,32 +3,38 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span class="spacer"></span>
-  <button mat-button routerLink="/home"> Home</button>
-  <button mat-button routerLink="/profile"> Profile</button>
+  <button mat-button routerLink="/admin/home"> Home</button>
+  <button mat-button routerLink="/admin/profile"> Profile</button>
   <button mat-button [matMenuTriggerFor]="importMenu" > <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>import</button>
   <mat-menu #importMenu>
-    <button mat-menu-item routerLink="loadStudents"> load Studens</button>
-    <button mat-menu-item routerLink="loadPayments"> load Payments</button>
+    <button mat-menu-item routerLink="/admin/loadStudents"> load Studens</button>
+    <button mat-menu-item routerLink="/admin/loadPayments"> load Payments</button>
   </mat-menu>
-  <button mat-raised-button routerLink="/login" color="accent"> login</button>
+  <button mat-button *ngIf="auth.authenticated">
+    {{auth.username}}
+  </button>
+  <button *ngIf="auth.authenticated" (click)="logout()" mat-raised-button color="accent">
+    logout
+  </button>
+  <button *ngIf="!auth.authenticated"  mat-raised-button routerLink="/login" color="accent"> login</button>
 
 </mat-toolbar>
 <mat-drawer-container>
   <mat-drawer #drawer mode="side" position="start"  opened="true">
     <mat-nav-list>
       <mat-list-item>
-        <button routerLink="/dashboard" mat-button>
+        <button routerLink="/admin/dashboard" mat-button>
           <mat-icon >dashboard</mat-icon>
           DashBoard</button>
 
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="/students" mat-button>
+        <button routerLink="/admin/students" mat-button>
           <mat-icon>dashboard</mat-icon>
           Students</button>
 
       </mat-list-item><mat-list-item>
-      <button mat-button routerLink="/payments">
+      <button mat-button routerLink="/admin/payments">
         <mat-icon>dashboard</mat-icon>
         Payments</button>
 
