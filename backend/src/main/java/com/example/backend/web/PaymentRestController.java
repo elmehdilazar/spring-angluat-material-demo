@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
 
-
+@CrossOrigin("*")
 @RestController
 public class PaymentRestController {
     private StudentRepository studentRepository;
