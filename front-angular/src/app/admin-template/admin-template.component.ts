@@ -13,4 +13,6 @@ constructor(public auth:AuthenticationService) {
   logout() {
     this.auth.logout();
   }
+
+  protected readonly AuthenticationService = AuthenticationService;
 }

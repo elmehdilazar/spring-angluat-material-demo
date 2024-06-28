@@ -34,8 +34,14 @@ import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatFormField, MatInput} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
-import {AuthGuard} from "./guards/auth.guard";
+
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AuthGuard} from "./guards/auth.guard";
+import {AuthorizationGuard} from "./guards/authorization.guard";
+import {HttpClientModule} from "@angular/common/http";
+
+
+
 
 
 @NgModule({
@@ -79,12 +85,15 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatFormFieldModule,
     ReactiveFormsModule,
     MatCardActions,
+    HttpClientModule,
     BrowserAnimationsModule
 
 
   ],
   providers: [
- AuthGuard
+    provideAnimationsAsync(),
+    AuthGuard,AuthorizationGuard
+
   ],
   bootstrap: [AppComponent]
 })

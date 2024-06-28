@@ -9,11 +9,16 @@ public username!:any;
 public password!:string;
 public roles:any;
 public  authenticated:boolean=false;
+public users :any={
+  'admin':['STUDENT','ADMIN'],
+  'user1':['STUDENT']
+}
   constructor(private router:Router) { }
   public login(username:string,passsword:string){
-    if(username=="admin" && passsword=="1234"){
+    if(this.users[username] && passsword=="1234"){
       this.username=username;
-      this.roles=['ADMIN'];
+      this.roles=this.users[username] ;
+      console.log(this.roles);
       this.authenticated=true;
       return true;
     }else{
