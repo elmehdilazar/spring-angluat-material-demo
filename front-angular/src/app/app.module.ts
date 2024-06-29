@@ -39,6 +39,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AuthGuard} from "./guards/auth.guard";
 import {AuthorizationGuard} from "./guards/authorization.guard";
 import {HttpClientModule} from "@angular/common/http";
+import {environment} from "../environments/environment";
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 
 
@@ -55,7 +57,8 @@ import {HttpClientModule} from "@angular/common/http";
     DashboardComponent,
     PaymentsComponent,
     LoadStudentsComponent,
-    LoadPaymentsComponent
+    LoadPaymentsComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,7 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     MatCardActions,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
 
   ],
